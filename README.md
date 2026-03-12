@@ -45,3 +45,9 @@ a modellt valós döntések támogatására szeretnénk használni. Fontos, hogy
 ## Forrás
 
 Link: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+
+## Használat
+1. Az adatok a megadott linken érhetők el, ahol év és hónap szerint lehet letölteni őket.
+2. A projekt gyökerében hozz létre egy data nevű mappát.
+3. A data mappán belül hozz létre külön mappákat az egyes évek számára, és ezekbe helyezd el a letöltött havi adatfájlokat.
+4. A notebookban módosítsd az adatforrás elérési útját úgy, hogy a létrehozott mappastruktúrára mutasson.
