@@ -47,7 +47,14 @@ a modellt valós döntések támogatására szeretnénk használni. Fontos, hogy
 Link: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
 ## Használat
-1. Az adatok a megadott linken érhetők el, ahol év és hónap szerint lehet letölteni őket.
-2. A projekt gyökerében hozz létre egy data nevű mappát.
-3. A data mappán belül hozz létre külön mappákat az egyes évek számára, és ezekbe helyezd el a letöltött havi adatfájlokat.
-4. A notebookban módosítsd az adatforrás elérési útját úgy, hogy a létrehozott mappastruktúrára mutasson.
+
+### Analyze notebook
+
+1. https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2009-01.parquet -> a letöltött fájlt helyezd a
+   raw_data/2009/-ba
+2. Futtasd `yellow_2009_analyze.ipynb`-t
+
+### Preprocessing
+
+1. Tölsd le az 2009-évi adatokat helyezd a raw_data/2009/-ba
+2. Futtasd `yellow_taxi_preprocessing.ipynb`-t elkészíti a tiszta adatokat a `clean_data`-ba helyezzi
