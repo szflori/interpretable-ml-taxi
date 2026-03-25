@@ -58,3 +58,38 @@ Link: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
 1. Tölsd le az 2009-évi adatokat helyezd a raw_data/2009/-ba
 2. Futtasd `yellow_taxi_preprocessing.ipynb`-t elkészíti a tiszta adatokat a `clean_data`-ba helyezzi
+
+### ETA modell (Lineáris regresszió)
+
+A `yellow_taxi_linear_regression_eta.ipynb` notebook a tisztított adatokon (`clean_data/2009`) épít ETA modellt,
+és összehasonlítja a következőket:
+
+- `LinearRegression (OLS)` baseline
+- `Ridge` (alpha hangolás `GridSearchCV`-vel)
+- `Lasso` (alpha hangolás `GridSearchCV`-vel)
+
+Tartalom:
+
+- célváltozó képzés: `trip_duration_minutes`
+- feature engineering (idő és térbeli jellemzők)
+- metrikák: `MAE`, `RMSE`, `R2`
+- interpretálhatóság:
+  - koefficiensek (nyers + standardizált)
+  - permutation importance
+- egyedi ETA példa, ahol mindhárom modell predikciója látható
+
+Futtatás lépései:
+
+1. Ellenőrizd, hogy a `clean_data/2009` mappában ott vannak a tisztított parquet fájlok
+2. Nyisd meg és futtasd a `yellow_taxi_linear_regression_eta.ipynb` notebookot felülről lefelé
+3. A konfigurációs cellában állítsd be igény szerint:
+   - `USE_SAMPLE` (kezdetnek `True` javasolt)
+   - `MAX_ROWS` (memória/futási idő kontroll)
+   - `BATCH_SIZE`
+
+Kimenetek, amiket érdemes figyelni:
+
+- `comparison_df`: modellek összehasonlítása metrikák szerint
+- `ranking_df`: összesített rangsor (MAE, RMSE, R2 alapján)
+- `coef_df`: lineáris koefficiensek értelmezése
+- `perm_df`: modell-független feature fontosság
